@@ -1,8 +1,10 @@
 # ICSI 311 Assignment 5 – More statements
 
-In this assignment, we will fill in the rest of the core functionality in the lexer and parser to
-give our language a “real” language feeling – calling functions, loops, and conditionals. We will
-also tweak our expression handling to allow us to **use** variables and we will also add modulo.
+[Previous Assignment](./ICSI%20311%20Assignment%204%20Comments%20and%20Assignments.md)
+| [Next Assignment](./ICSI%20311%20Assignment%206%20%20More%20on%20Functions.md)
+
+#### In this assignment, we will fill in the rest of the core functionality in the lexer and parser to give our language a “real” language feeling – calling functions, loops, and conditionals. We will also tweak our expression handling to allow us to **
+use** variables and we will also add modulo.
 
 ## Lexer changes
 
@@ -23,7 +25,7 @@ We need to make `ASTNodes` for:
 * `While` (booleanExpression and collection of statementNodes)
 * `Repeat` (booleanExpression and collection of statementNodes)
 * `For` (variableReference, start ASTNode, end astNode, collection of statementNodes)
-* `If` is a little bit interesting. How do we model that unlimited length chain of “elsif”?
+* `If` is a little interesting. How do we model that unlimited length chain of “elsif”?
 * A linked list: `If` (booleanExpression, collection of statementNodes, ifNode)
 * For else, you can either use a null boolean expression or make an ElseNode that derives from
   IfNode. One is more work now, one is more work later.
@@ -56,7 +58,7 @@ one of these. Make new functions for while, for and if, following the pattern th
   For example: c:=b+1
 ```
 
-*We can add this by making factor accept an identifier (and creating a `variableReferenceNode`).*
+*We can add this by making factor accept an identifier (and creating a `.variableReferenceNode`).*
 
 Testing
 

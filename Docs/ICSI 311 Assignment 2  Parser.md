@@ -1,5 +1,10 @@
 # 311 Assignment 2 – Start the Parser
 
+### The start of the parser
+
+[Previous](./ICSI%20311%20Assignment%201%20%20Lexer.md)
+| [Next](./ICSI%20311%20Assignment%203%20%20FuctAdditions.md)
+
 -----
 Overview
 -----
@@ -114,16 +119,9 @@ For `FloatNode`, return the value.
 
 Make sure that you test your code. Change your main to instantiate a parser (passing in the tokens
 from the lexer) and then call parse on the parser. Right now, it will only process a single line.
-Print your AST by using the “ToString” that you created. Use several different mathematical
+Print your AST by using the “ToString” that you created. Use several mathematical
 expressions and be sure that order of operations is respected. Then add a call to Resolve() and
 check the math.
-
-A number of you had some trouble with assignment 1. Many of you did not. I have asked the TAs not to
-finish grading assignment 1.
-
-Instead, I asked them to grade assignments 1 & 2 at the same time (i.e. when you hand in parser).
-That gives you a few more days on the lexer if you had trouble with it. I won't do this again, so
-don't count on it. You will still get two grades, though.
 
 #### **A note on code submission:**
 

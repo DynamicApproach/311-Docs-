@@ -1,3 +1,7 @@
+# ICSI 311 Assignment 9 – Adding More Data Types
+
+[Previous Assignment](./ICSI%20311%20Assignment%208%20%20Adding%20other%20statements.md)
+
 **This is the end! How you do on this assignment doesn’t impact any others!**
 
 **You must submit .java files. Any other file type will be ignored. Especially “.class” files.**
@@ -41,7 +45,7 @@ and double quotes, I don’t make individual tokens for start quote and end quot
 a “CharContents” and “StringContents”. Note that one thing that we need to do is enforce the length
 limit of 1 character on CharContents.
 
-##               
+##                
 
 ## The Parser
 
@@ -57,11 +61,17 @@ little weird – 2+2 seems different from x>2. But, are they? They are both math
 that return a value.
 
 Create a BoolNode like we created `IntNode` and `FloatNode`. Change **Factor**() to return a
-`BoolNode` when
-it finds the true and false tokens. Then merge in from your existing code the boolean operators (
-less than, less than or equal, etc) to ExpressionRightHandSide. Remember that we can’t chain
-booleans like we do addition and subtraction; that is to say 2+3+4 is allowed, but 4>x>9 is not
+`BoolNode` when it finds the true and false tokens.
+
+Then merge in from your existing code the boolean operators (
+less than, less than or equal, etc.) to ExpressionRightHandSide.
+Remember that we can’t chain booleans like we do addition and subtraction; that is to say 2+3+4 is
+allowed, but 4>x>9 is not
 allowed.
+
+
+------------------------------------
+
 
 Likewise, create a `CharNode` and a `StringNode` for those data types. Add those to **Factor**() as
 well.
@@ -73,12 +83,13 @@ this allows all sorts of invalid things like:
 That is true. But remember that the parser’s job is to build the AST that the user specified. We
 will walk through it to make sure that the types all make sense.
 
+
+--------------------------
+
 ## Semantic Analysis
 
-This is an additional step that is performed once parsing is complete. ![Diagram
-
-]
-In this step, we analyze the AST. In this step, we have all the data of the complete AST so we can
+This is an additional step that is performed once parsing is complete.
+In this step, we analyze the AST. In this step, we have all the data of the complete AST, so we can
 do things like ensure (for example) that all variables are declared. In `Shank`, this is not an
 issue,
 since all variables are at the function scope (and declared at the top), but think about Java where

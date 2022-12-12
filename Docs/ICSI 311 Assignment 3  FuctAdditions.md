@@ -1,4 +1,9 @@
-# Lexer Changes – Words!
+# ICSI 311 Assignment 5 – Function Additions
+
+### Adding words to the lexer!
+
+[Previous Assignment](./ICSI%20311%20Assignment%202%20%20Parser.md)
+| [Next Assignment](./ICSI%20311%20Assignment%204%20Comments%20and%20Assignments.md)
 
 We start in the lexer. We will need a new state for “words”.
 
@@ -28,33 +33,33 @@ something like this (pseudo-code):
 
 There are two types of words that we need to deal with.
 
-One type is reserved words, which we know ahead of time (like “integer” and “real” and
+One type is reserved words, which we know ahead of time (like “integer” and “float” and
 “variable”).
+1.
+  * For reserved words, we will want to output specific tokens.
+    The other type is words that we don’t know about in advance, like function names or variable
+    names.
 
-* For reserved words, we will want to output specific tokens.
-  The other type is words that we don’t know about in advance, like function names or variable
-  names.
+  * For other words, we will have a generic token (“identifier”).
 
-* For other words, we will have a generic token (“identifier”).
-
-  A super easy way to do this is to make a HashMap  (String, TokenType) of
-  reserved words. When your lexer completes a word, look in the HashMap; if it is in there,
-  create
-  a Token using that TokenType.
-* Otherwise, use the “Identifier” token type.
+    A super easy way to do this is to make a HashMap  (String, TokenType) of
+    reserved words. When your lexer completes a word, look in the HashMap; if it is in there,
+    create
+    a Token using that TokenType.
+  * Otherwise, use the “Identifier” token type.
 
 2)
 
-* Create the token types that we need:
-  Identifier, define, leftParen, rightParen, integer, real, begin, end, semicolon, colon, equal,
-  comma, variables, constants
-* Add integer, real, begin, end, variables, constants to the HashMap with their matching token
-  type.
-* Add the state(s) for “words”. When you find a word, look it up in the hashmap and make a token,
-  as
-  described above.
-* Add comma, colon, equal and semicolon to your lexer as well (these are just
-  characters like plus and minus were).
+  * Create the token types that we need:
+    Identifier, define, leftParen, rightParen, integer, float, begin, end, semicolon, colon, equal,
+    comma, variables, constants
+  * Add integer, real, begin, end, variables, constants to the HashMap with their matching token
+    type.
+  * Add the state(s) for “words”. When you find a word, look it up in the hashmap and make a token,
+    as
+    described above.
+  * Add comma, colon, equal and semicolon to your lexer as well (these are just
+    characters like plus and minus were).
 
 -----------
 
@@ -97,10 +102,10 @@ variables section, then a body. The function declaration is required. The consta
 sections may not be in every function. A body is required.
 
 The **function declaration** is the word “define”, then a name, left parenthesis, then a list of
-variable declarations, separated by semi-colons and finally a right parenthesis.
+variable declarations, separated by semicolons and finally a right parenthesis.
 The constants section has one (or more) name/value pairs.
 
-The variables has one (or more) lists of names followed by a colon followed by a data type.
+The variables have one (or more) lists of names followed by a colon followed by a data type.
 One non-obvious element is that constants have a data type, too.
 It is just inferred from the value.
 
@@ -108,10 +113,10 @@ It is just inferred from the value.
   should
   have a name, an “is constant”, an enum for data type (integer and real, for now) and an ASTNode
   for
-  the initial value (which will be a `RealNode` or an `IntNode`, for now).
+  the initial value (which will be a `FloatNode` or an `IntNode`, for now).
 
 Make sure that you add a
-**ToString**() method that prints all of the fields in a readable way – this helps a lot for
+**ToString**() method that prints all the fields in a readable way – this helps a lot for
 debugging.
 
 To build the parser, we follow the description above.
@@ -123,8 +128,9 @@ variable declarations (see below). We then call the Constants, then Variables, t
 from below.
 
 The functionAST node should have 2 different collection classes of `VariableNode` – one for
-parameters
-and one for local variables.
+parameters and one for local variables.
+
+---------------------------------------------------------------------------------------------
 
 - It should include the “ToString()” method, which should output the
   local variables and the parameterVariables as well as the function name.
@@ -140,11 +146,11 @@ We then make a Variables function that looks for the variables token. If it find
 for variable declarations and makes `VariableNodes` for each one.
 
 A variable declaration is a list of identifiers (separated by commas) followed by a colon, then the
-data type (integer or real, for now) followed by endOfLine (for variables section) or a semi-colon (
+data type (integer or real, for now) followed by endOfLine (for variables section) or a semicolon (
 for function definitions).
 
 For each variable, we make a `VariableNode` like we did for constants.
-We then make a **BodyFunction** that looks for begin, endOfLiine, end, endOfLine.
+We then make a **BodyFunction** that looks for begin, endOfLine, end, endOfLine.
 Right now, we don’t
 do anything with these. We should now be able to parse function declarations!
 

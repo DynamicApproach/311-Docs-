@@ -1,5 +1,12 @@
 # ICSI 311 Assignment 1 – The Lexer
 
+### Introduction
+
+[Previous Assignment](./ICSI%20311%20Assignment%202%20%20Parser.md)
+| [Next Assignment](./ICSI%20311%20Assignment%203%20%20FuctAdditions.md)
+
+#### All documents originally made by M. Phipps, updated and clarified by me
+
 **This assignment is extremely important – (nearly) every assignment after this one uses this one!**
 
 **If you have bugs or missing features in this, you will need to fix them before you can continue on
@@ -15,6 +22,10 @@ multiple files.**
 This assignment **must** have three different source code files.
 
 One file **must** be called `Shank`.java.
+
+----------------
+
+## Shank.java
 
 `Shank` is essentially just currently a runner to make use of `Token` and `Lexer`. It should take a
 file
@@ -40,7 +51,7 @@ and exit.
 That one argument will be considered as a filename (optionally IN THE CURRENT PATH?).
 
 - Your main **
-  must** then use File.ReadAllLines to read all of the lines from the file denoted by filename. Your
+  must** then use File.ReadAllLines to read all the lines from the file denoted by filename. Your
   main **must** instantiate one instance of your Lexer class (to be defined below).
 - You **must** parse
   all lines using the lex method of the Lexer class.
@@ -48,6 +59,8 @@ That one argument will be considered as a filename (optionally IN THE CURRENT PA
 If lex throws an exception, you **must** catch
 the exception, print that there was an exception. You **must** then print each token out (this is a
 temporary step to show that it works) once the lexing is complete.
+
+## Token.java
 
 One file must be called `Token.java`. This file **must** contain a `Token` class. The `token` class
 is
@@ -84,8 +97,8 @@ Some examples of valid input and the result output are:
     
     *an empty line*
 
-    
 ----------
+
 
     EndOfLine
     
@@ -121,7 +134,7 @@ Some examples of valid input and the result output are:
 
 ========================================
 
-## **_Do not wait until the assignment is nearly due to begin._**
+# **_Do not wait until the assignment is nearly due to begin._**
 
 ### Start early so that you can **ask questions.**
 

@@ -1,3 +1,8 @@
+# ICSI 311 Assignment 8 – Adding Other Statements
+
+[Previous Assignment](./ICSI%20311%20Assignment%207%20%20Calling%20Functions%20in%20the%20interpreter.md)
+| [Next Assignment](./ICSI%20311%20Assignment%209%20Adding%20more%20data%20types.md)
+
 **This assignment is extremely important – (nearly) every assignment after this one uses this one!**
 
 **If you have bugs or missing features in this, you will need to fix them before you can continue on
@@ -12,6 +17,8 @@ multiple files.**
 
 ## Background
 
+-------------------
+
 It might seem hard to believe, but we are nearly done! Calling function is the hardest part.
 
 We need to handle assignment statements. Since we already have the code in place to do
@@ -24,6 +31,8 @@ boolean back, we can implement if, while and repeat.
 That leaves us with the “for” statement, which is also fairly simple.
 
 ## Work on the interpreter
+
+-----
 
 Start with adding assignment statements. In “**InterpretBlock**” we need to look at the type of AST
 node
@@ -48,7 +57,7 @@ But Expression could be int or float. There are a few ways to resolve this; be c
 “**EvaluateBooleanExpression**” which returns a boolean. You will need to pass in the
 `BooleanExpressionNode` and the current variables.
 
-Once you have this working, you can easily implement while, repeat and if. Remember, though, that if
+Once you have this working, you can easily implement while, repeat and if. Remember, though, that if it
 has a linked list chain, so you will need to follow that chain to find the first true condition (or
 else).
 
